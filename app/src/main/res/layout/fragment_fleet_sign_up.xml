@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.loginSignup.FleetSignUpFragment"
+    android:background="@color/AllbackgroundColor">
+
+    <TextView
+        android:id="@+id/tv_fo_signup_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignUp Admin"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab_extra_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_fo_signup_head"
+        android:layout_marginBottom="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_fo_company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company Name"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_company_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_company_name"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="text"
+                android:hint="Enter your Company name"
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Name"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_company_name"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_name"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="text"
+                android:hint="Enter your name"
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_company_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company Id"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_name"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_company_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_company_id"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="text"
+                android:hint="Enter Company Id "
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_company_id"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_email"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="text"
+                android:hint="Enter Email"
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_phone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone No."
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_email"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_phone_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_phone_no"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="phone"
+                android:hint="Enter Phone NO."
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_fleet_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fleet Size"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_phone_no"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_fleet_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_fleet_size"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="phone"
+                android:hint="Enter Fleet Size"
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_fleet_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fleet Base Location"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_fleet_size"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_fleet_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_fleet_add"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="phone"
+                android:hint="Fleet Address"
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_fleet_add"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_password"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="text"
+                android:hint="Enter Password"
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_confirm_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm Password"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_password"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <EditText
+                android:id="@+id/et_fo_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_confirm_password"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="text"
+                android:hint="Confirm Password "
+                />
+
+            <TextView
+                android:id="@+id/tv_fo_file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="no file selected"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@id/et_fo_confirm_password"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="10dp"/>
+
+            <Button
+                android:id="@+id/btn_fo_Upload_File"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Upload File"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_file"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:textSize="20sp"
+                android:background="@drawable/btn_dashboard_main_dop"/>
+
+
+            <CheckBox
+                android:id="@+id/tv_fo_terms_conditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terms and Conditions"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_slab_regular"
+                app:layout_constraintTop_toBottomOf="@+id/btn_fo_Upload_File"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_admin_fleet_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign up"
+                app:layout_constraintTop_toBottomOf="@id/tv_fo_terms_conditions"
+                android:textSize="20sp"
+                android:layout_margin="40dp"
+                android:background="@drawable/btn_dashboard_main_dop"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

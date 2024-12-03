@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/dashboard">
+
+    <fragment android:id="@+id/placeholder" />
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.app.easemypost.ui.dop.dashboard.DashboardFragment"
+        android:label="fragment_home2"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboard_to_packageInfoFragment"
+            app:destination="@id/packageInfoFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_deliveryInfoFragment"
+            app:destination="@id/deliveryInfoFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_scheduleDeliveryFragment"
+            app:destination="@id/scheduleDeliveryFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/packageInfoFragment"
+        android:name="com.app.easemypost.ui.dop.dashboard.PackageInfoFragment"
+        android:label="fragment_package_info"
+        tools:layout="@layout/fragment_package_info" />
+    <fragment
+        android:id="@+id/deliveryInfoFragment"
+        android:name="com.app.easemypost.ui.dop.dashboard.DeliveryInfoFragment"
+        android:label="fragment_delivery_info"
+        tools:layout="@layout/fragment_delivery_info" />
+    <fragment
+        android:id="@+id/scheduleDeliveryFragment"
+        android:name="com.app.easemypost.ui.dop.dashboard.ScheduleDeliveryFragment"
+        android:label="fragment_schedule_delivery"
+        tools:layout="@layout/fragment_schedule_delivery" />
+</navigation>

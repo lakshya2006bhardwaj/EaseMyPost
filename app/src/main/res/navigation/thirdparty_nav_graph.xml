@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/thirdparty_nav_graph"
+    app:startDestination="@id/dashboard_tp">
+
+    <fragment
+        android:id="@+id/dashboard_tp"
+        android:name="com.app.easemypost.ui.thirdParty.dashboard.DashboardTPFragment"
+        android:label="fragment_dashboard_t_p"
+        tools:layout="@layout/fragment_dashboard_t_p" />
+    <fragment
+        android:id="@+id/alert_tp"
+        android:name="com.app.easemypost.ui.thirdParty.alert.AlertTPFragment"
+        android:label="fragment_alert_t_p"
+        tools:layout="@layout/fragment_alert_t_p" />
+    <fragment
+        android:id="@+id/dispatch_tp"
+        android:name="com.app.easemypost.ui.thirdParty.dispatch.DispatchTPFragment"
+        android:label="fragment_dispatch_t_p"
+        tools:layout="@layout/fragment_dispatch_t_p" />
+    <fragment
+        android:id="@+id/profile_tp"
+        android:name="com.app.easemypost.ui.thirdParty.profile.ProfileTPFragment"
+        android:label="fragment_profile_t_p"
+        tools:layout="@layout/fragment_profile_t_p" />
+    <fragment
+        android:id="@+id/tracking_tp"
+        android:name="com.app.easemypost.ui.thirdParty.tracking.TrackingTPFragment"
+        android:label="fragment_tracking_t_p"
+        tools:layout="@layout/fragment_tracking_t_p" />
+</navigation>

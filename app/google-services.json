@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "889052338435",
+    "firebase_url": "https://saarthi-6dc06-default-rtdb.firebaseio.com",
+    "project_id": "saarthi-6dc06",
+    "storage_bucket": "saarthi-6dc06.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889052338435:android:7ced4cbb609d46750cf136",
+        "android_client_info": {
+          "package_name": "com.app.easemypost"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZjDLFWgIFLfyQAEqnOEt2VM3HB-v0cy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_signup_nav_graph"
+    app:startDestination="@id/loginSelectionFragment">
+
+    <fragment
+        android:id="@+id/loginSelectionFragment"
+        android:name="com.app.easemypost.ui.loginSignup.LoginSelectionFragment"
+        android:label="fragment_login_selection"
+        tools:layout="@layout/fragment_login_selection" >
+        <action
+            android:id="@+id/action_loginSelectionFragment_to_adminLoginFragment"
+            app:destination="@id/adminLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminLoginFragment"
+        android:name="com.app.easemypost.ui.loginSignup.AdminLoginFragment"
+        android:label="fragment_admin_login"
+        tools:layout="@layout/fragment_admin_login" >
+        <action
+            android:id="@+id/action_adminLoginFragment_to_dopSignUpFragment2"
+            app:destination="@id/dopSignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dopSignUpFragment"
+        android:name="com.app.easemypost.ui.loginSignup.DopSignUpFragment"
+        android:label="fragment_dop_sign_up"
+        tools:layout="@layout/fragment_dop_sign_up" />
+</navigation>

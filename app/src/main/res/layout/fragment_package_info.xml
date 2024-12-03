@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.dop.dashboard.PackageInfoFragment">
+
+    <TextView
+        android:id="@+id/tv_package_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#49254F"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="Delivery Package Information"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_package_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#D89FE1"/>
+
+    <ImageView
+        android:id="@+id/img_parcel_entities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/entities"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_package_info"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_parcel_entity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Number of Entities:\n"
+        android:textFontWeight="@android:integer/config_mediumAnimTime"
+        app:layout_constraintTop_toTopOf="@id/img_parcel_entities"
+        app:layout_constraintBottom_toBottomOf="@id/img_parcel_entities"
+        app:layout_constraintStart_toEndOf="@id/img_parcel_entities"
+        />
+
+    <TextView
+        android:id="@+id/tv_parcel_entity_ans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Total Weight: 5,000 kg\nIndividual Items: 300"
+        app:layout_constraintTop_toTopOf="@id/tv_parcel_entity"
+        app:layout_constraintStart_toEndOf="@id/tv_parcel_entity"
+        />
+
+    <ImageView
+        android:id="@+id/img_parcel_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/parcel_weight"
+        app:layout_constraintTop_toBottomOf="@id/tv_parcel_entity_ans"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_parcel_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parcel Weight:"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/img_parcel_weight"
+        app:layout_constraintBottom_toBottomOf="@id/img_parcel_weight"
+        app:layout_constraintStart_toEndOf="@id/img_parcel_weight"
+        />
+
+    <TextView
+        android:id="@+id/tv_parcel_weight_ans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Weight: 5,000 kg\nWeight in Tonn : 5 Tonnes"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_parcel_weight"
+        app:layout_constraintStart_toEndOf="@id/tv_parcel_weight"
+        />
+
+    <ImageView
+        android:id="@+id/img_parcel_volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/parcel_volume"
+        app:layout_constraintTop_toBottomOf="@id/tv_parcel_weight_ans"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_parcel_volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parcel Volume:"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/img_parcel_volume"
+        app:layout_constraintBottom_toBottomOf="@id/img_parcel_volume"
+        app:layout_constraintStart_toEndOf="@id/img_parcel_volume"
+        />
+
+    <TextView
+        android:id="@+id/tv_parcel_volume_ans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Volume: 12 m³\nAverage Parcel Volume: 0.5 m³"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_parcel_volume"
+        app:layout_constraintStart_toEndOf="@id/tv_parcel_volume"
+        />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

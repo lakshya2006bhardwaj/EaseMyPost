@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.loginSignup.DopSignUpFragment"
+    android:background="@color/AllbackgroundColor">
+
+    <TextView
+        android:id="@+id/tv_signup_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignUp Admin"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab_extra_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"/>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup_head"
+        android:layout_marginBottom="20dp">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Name"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab_regular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="18dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:inputType="text"
+        android:hint="Enter your name"
+        />
+
+        <TextView
+            android:id="@+id/tv_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile No."
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_slab_regular"
+           app:layout_constraintTop_toBottomOf="@id/et_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <EditText
+            android:id="@+id/et_mobile_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_mobile_no"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:inputType="number"
+            android:hint="Enter mobile no."
+            />
+
+        <TextView
+            android:id="@+id/tv_pincode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pincode"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_slab_regular"
+           app:layout_constraintTop_toBottomOf="@id/et_mobile_no"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <EditText
+            android:id="@+id/et_pincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_pincode"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:inputType="text"
+            android:hint="Enter pincode"
+            />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_slab_regular"
+          app:layout_constraintTop_toBottomOf="@id/et_pincode"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:inputType="text"
+            android:hint="Enter your email"
+            />
+
+        <TextView
+            android:id="@+id/tv_hub_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hub code"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_slab_regular"
+            app:layout_constraintTop_toBottomOf="@id/et_email"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <EditText
+            android:id="@+id/et_hub_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_hub_code"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:inputType="text"
+            android:hint="Enter hub code"
+            />
+
+        <TextView
+            android:id="@+id/tv_hub_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hub Name"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_slab_regular"
+            app:layout_constraintTop_toBottomOf="@id/et_hub_code"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <EditText
+            android:id="@+id/et_hub_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_hub_name"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:inputType="text"
+            android:hint="Enter hub name"
+            />
+
+       <TextView
+        android:id="@+id/tv_hub_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hub Address"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab_regular"
+        app:layout_constraintTop_toBottomOf="@id/et_hub_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"/>
+
+        <EditText
+            android:id="@+id/et_hub_addrress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_hub_address"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:inputType="text"
+            android:hint="Enter hub address"
+            />
+
+        <CheckBox
+            android:id="@+id/tv_terms_conditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terms and Conditions"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_slab_regular"
+            app:layout_constraintTop_toBottomOf="@+id/et_hub_addrress"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"/>
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dop_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            app:layout_constraintTop_toBottomOf="@id/tv_terms_conditions"
+            android:textSize="20sp"
+            android:layout_margin="40dp"
+            android:background="@drawable/btn_dashboard_main_dop"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
