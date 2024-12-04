@@ -45,8 +45,8 @@ class DopActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.alert -> {
-                    navController.navigate(R.id.alert)
+                R.id.alerts -> {
+                    navController.navigate(R.id.alerts)
                     true
                 }
                 R.id.profile -> {
@@ -63,7 +63,7 @@ class DopActivity : AppCompatActivity() {
             R.id.tracking,
             R.id.profile,
             R.id.dashboard,
-            R.id.alert
+            R.id.alerts
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
