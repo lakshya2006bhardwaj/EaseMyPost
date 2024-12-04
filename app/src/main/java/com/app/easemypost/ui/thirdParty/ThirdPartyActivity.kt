@@ -43,7 +43,7 @@ class ThirdPartyActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.alert -> {
+                R.id.alerts -> {
                     navController.navigate(R.id.alert_tp)
                     true
                 }
@@ -61,7 +61,7 @@ class ThirdPartyActivity : AppCompatActivity() {
             R.id.tracking,
             R.id.profile,
             R.id.dashboard,
-            R.id.alert
+            R.id.alerts
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
