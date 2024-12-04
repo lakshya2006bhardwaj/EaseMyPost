@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.loginSignup.VerifyOtpFragment"
+    android:background="@color/AllbackgroundColor">
+
+    <TextView
+        android:id="@+id/tv_verify_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Yourself"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab_extra_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        />
+    <!-- OTP Input -->
+    <EditText
+        android:id="@+id/etOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_verify_otp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="18dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:inputType="text"
+        android:hint="Enter Otp"
+        android:maxLength="6"
+        />
+
+    <!-- Verify Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verify"
+        app:layout_constraintTop_toBottomOf="@id/etOtp"
+        android:textSize="20sp"
+        android:layout_margin="40dp"
+        android:background="@drawable/btn_dashboard_main_dop"/>
+
+    <!-- Resend OTP -->
+    <TextView
+        android:id="@+id/tvResendOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btn_verify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_slab_regular"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

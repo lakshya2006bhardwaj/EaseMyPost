@@ -27,5 +27,14 @@
         android:id="@+id/dopSignUpFragment"
         android:name="com.app.easemypost.ui.loginSignup.DopSignUpFragment"
         android:label="fragment_dop_sign_up"
-        tools:layout="@layout/fragment_dop_sign_up" />
+        tools:layout="@layout/fragment_dop_sign_up" >
+        <action
+            android:id="@+id/action_dopSignUpFragment_to_verifyOtpFragment"
+            app:destination="@id/verifyOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:name="com.app.easemypost.ui.loginSignup.VerifyOtpFragment"
+        android:label="fragment_verify_otp"
+        tools:layout="@layout/fragment_verify_otp" />
 </navigation>

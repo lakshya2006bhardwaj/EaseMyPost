@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.app.easemypost.R
 import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.databinding.FragmentDopSignUpBinding
 import com.app.easemypost.domain.model.requests.AdminSignUpReq
@@ -137,6 +138,11 @@ class DopSignUpFragment : Fragment() {
                 ).show()
             }
         }
+
+        btnDopSignup.setOnClickListener(){
+            findNavController().navigate(R.id.action_dopSignUpFragment_to_verifyOtpFragment)
+        }
+
     }
 
     private fun adminSignUpDataObserver() {
