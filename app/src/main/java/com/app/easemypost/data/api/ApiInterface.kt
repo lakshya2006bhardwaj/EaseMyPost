@@ -3,6 +3,7 @@ package com.app.easemypost.data.api
 import com.app.easemypost.common.ApiConstant
 import com.app.easemypost.domain.model.requests.AdminLoginReq
 import com.app.easemypost.domain.model.requests.AdminSignUpReq
+import com.app.easemypost.domain.model.requests.AdminVerifyOtpReq
 import com.app.easemypost.domain.model.response.AdminLoginRes
 import com.app.easemypost.domain.model.response.AdminSignUpRes
 import retrofit2.Response
@@ -19,6 +20,11 @@ interface ApiInterface {
     @POST(ApiConstant.ADMIN_LOGIN)
     suspend fun adminLogin(
         @Body adminLoginReq:AdminLoginReq
+    ):Response<AdminLoginRes>
+
+    @POST(ApiConstant.ADMIN_VERIFY_OTP)
+    suspend fun adminVerifyOtp(
+        @Body adminVerifyOtpReq:AdminVerifyOtpReq
     ):Response<AdminLoginRes>
 
 }

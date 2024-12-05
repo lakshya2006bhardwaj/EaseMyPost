@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/AllbackgroundColor"
+    tools:context=".ui.loginSignup.FleetOwnerSignUpFragment">
+
+    <TextView
+        android:id="@+id/tv_fleet_owner_signup_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/roboto_slab_extra_bold"
+        android:text="SignUp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_fleet_owner_signup_head">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_fleet_owner_registration_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:text="Registration Number"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_fleet_owner_registration_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Enter fleet registration no"
+                android:inputType="number"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_fleet_owner_registration_no" />
+
+            <TextView
+                android:id="@+id/tv_fleet_owner_gst_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:text="GST Number"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_fleet_owner_registration_no"/>
+
+            <EditText
+                android:id="@+id/et_fleet_owner_gst_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Enter fleet gst no"
+                android:inputType="number"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_fleet_owner_gst_no" />
+
+
+            <TextView
+                android:id="@+id/tv_fleet_owner_fleet_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:text="Fleet Size"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_fleet_owner_gst_no"/>
+
+            <EditText
+                android:id="@+id/et_fleet_owner_fleet_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Enter fleet size"
+                android:inputType="number"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_fleet_owner_fleet_size"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_fleet_owner_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="40dp"
+                android:background="@drawable/btn_dashboard_main_dop"
+                android:text="Sign Up"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/et_fleet_owner_fleet_size"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

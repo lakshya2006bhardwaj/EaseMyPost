@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.domain.model.requests.AdminLoginReq
 import com.app.easemypost.domain.model.requests.AdminSignUpReq
+import com.app.easemypost.domain.model.requests.AdminVerifyOtpReq
 import com.app.easemypost.domain.model.response.AdminLoginRes
 import com.app.easemypost.domain.model.response.AdminSignUpRes
 import com.app.easemypost.domain.repository.auth.AuthRepository
@@ -23,6 +24,9 @@ class AuthViewModel @Inject constructor(private val authRepository: AuthReposito
 
     private val _adminLoginDetails = MutableLiveData<ApiHandler<AdminLoginRes>>()
     val adminLoginDetails: LiveData<ApiHandler<AdminLoginRes>> = _adminLoginDetails
+
+    private val _adminVerifyOtpDetails = MutableLiveData<ApiHandler<AdminLoginRes>>()
+    val adminVerifyOtpDetails: LiveData<ApiHandler<AdminLoginRes>> = _adminVerifyOtpDetails
 
     fun adminSignUp(adminSignUpData: AdminSignUpReq) {
         viewModelScope.launch {
@@ -60,6 +64,26 @@ class AuthViewModel @Inject constructor(private val authRepository: AuthReposito
 
                     is ApiHandler.Loading -> {
                         _adminLoginDetails.postValue(ApiHandler.Loading)
+                    }
+                }
+            }
+        }
+    }
+    fun adminVerifyOtp(verifyOtpData:AdminVerifyOtpReq){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                _adminVerifyOtpDetails.postValue(ApiHandler.Loading)
+                when (val result = authRepository.adminVerifyOtp(adminVerifyOtpReq = verifyOtpData)) {
+                    is ApiHandler.Success -> {
+                        _adminVerifyOtpDetails.postValue(result)
+                    }
+
+                    is ApiHandler.Error -> {
+                        _adminVerifyOtpDetails.postValue(result)
+                    }
+
+                    is ApiHandler.Loading -> {
+                        _adminVerifyOtpDetails.postValue(ApiHandler.Loading)
                     }
                 }
             }

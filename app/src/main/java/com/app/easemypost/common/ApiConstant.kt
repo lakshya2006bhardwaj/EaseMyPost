@@ -5,4 +5,5 @@ object ApiConstant {
     const val BASE_URL = "http://192.168.1.2:5001/api/"
     const val ADMIN_SIGNUP = "admin/auth/signup"
     const val ADMIN_LOGIN = "admin/auth/login"
+    const val ADMIN_VERIFY_OTP = "admin/auth/verify-otp"
 }
