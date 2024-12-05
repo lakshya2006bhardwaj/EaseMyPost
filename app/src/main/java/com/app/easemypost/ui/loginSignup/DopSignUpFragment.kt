@@ -55,7 +55,7 @@ class DopSignUpFragment : Fragment() {
                                 if (!etHubAddrress.text.isNullOrEmpty()) {
                                     if (!etHubName.text.isNullOrEmpty()) {
                                         if (tvTermsConditions.isChecked) {
-                                            authViewModel.getRechargePlansDetails(
+                                            authViewModel.adminSignUp(
                                                 AdminSignUpReq(
                                                     stationName = etHubName.text.toString(),
                                                     stationCode = etHubCode.text.toString(),
@@ -165,6 +165,10 @@ class DopSignUpFragment : Fragment() {
                 }
             }
         }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        authViewModel.clearData()
     }
 
 }
