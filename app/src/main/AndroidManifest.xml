@@ -36,7 +36,7 @@
 
         <activity
             android:name=".ui.loginSignup.MainLoginActivity"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
 
