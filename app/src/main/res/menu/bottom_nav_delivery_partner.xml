@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/dashboard"
+        android:title="Dashboard"/>
+
+    <item android:id="@+id/addTruck"
+        android:title="Add new truck"/>
+
+    <item android:id="@+id/addDriver"
+        android:title="Add new driver"/>
+
+    <item android:id="@+id/alerts"
+        android:title="Alerts"/>
+
+    <item android:id="@+id/profile"
+        android:title="Profile"/>
+</menu>
