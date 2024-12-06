@@ -19,6 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
+    var phone = ""
+
     private val _adminSignUpDetails = MutableLiveData<ApiHandler<AdminSignUpRes>>()
     val adminSignUpDetails: LiveData<ApiHandler<AdminSignUpRes>> = _adminSignUpDetails
 
@@ -92,5 +94,6 @@ class AuthViewModel @Inject constructor(private val authRepository: AuthReposito
     fun clearData(){
         _adminLoginDetails.value = null
         _adminSignUpDetails.value = null
+        _adminVerifyOtpDetails.value = null
     }
 }

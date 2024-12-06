@@ -56,6 +56,7 @@ class DopSignUpFragment : Fragment() {
                                 if (!etHubAddrress.text.isNullOrEmpty()) {
                                     if (!etHubName.text.isNullOrEmpty()) {
                                         if (tvTermsConditions.isChecked) {
+                                            authViewModel.phone = etMobileNo.text.toString()
                                             authViewModel.adminSignUp(
                                                 AdminSignUpReq(
                                                     stationName = etHubName.text.toString(),

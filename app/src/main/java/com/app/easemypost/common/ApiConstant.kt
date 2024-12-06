@@ -6,4 +6,5 @@ object ApiConstant {
     const val ADMIN_SIGNUP = "admin/auth/signup"
     const val ADMIN_LOGIN = "admin/auth/login"
     const val ADMIN_VERIFY_OTP = "admin/auth/verify-otp"
+
 }

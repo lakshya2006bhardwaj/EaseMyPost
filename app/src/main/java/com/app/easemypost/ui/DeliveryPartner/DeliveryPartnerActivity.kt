@@ -8,13 +8,15 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.app.easemypost.R
 import com.app.easemypost.databinding.ActivityDeliveryPartnerBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DeliveryPartnerActivity : AppCompatActivity() {
     private lateinit var binding:ActivityDeliveryPartnerBinding
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding=ActivityDeliveryPartnerBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding=ActivityDeliveryPartnerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment =
