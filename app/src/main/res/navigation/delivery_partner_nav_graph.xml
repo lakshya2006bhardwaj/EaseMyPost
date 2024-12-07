@@ -3,31 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/delivery_partner_nav_graph"
-    app:startDestination="@+id/dashboard">
+    app:startDestination="@+id/dashboard_dp">
 
     <fragment
-        android:id="@+id/dashboard"
+        android:id="@+id/dashboard_dp"
         android:name="com.app.easemypost.ui.DeliveryPartner.dashboard.DashboardDpFragment"
         android:label="fragment_dashboard_dp"
         tools:layout="@layout/fragment_dashboard_dp" />
+
     <fragment
-        android:id="@+id/addTruck"
-        android:name="com.app.easemypost.ui.DeliveryPartner.addTruck.AddTruckDpFragment"
-        android:label="fragment_add_truck_dp"
-        tools:layout="@layout/fragment_add_truck_dp" />
-    <fragment
-        android:id="@+id/addDriver"
-        android:name="com.app.easemypost.ui.DeliveryPartner.addDriver.AddDriverDpFragment"
-        android:label="fragment_add_driver_dp"
-        tools:layout="@layout/fragment_add_driver_dp" />
-    <fragment
-        android:id="@+id/alerts"
+        android:id="@+id/alerts_dp"
         android:name="com.app.easemypost.ui.DeliveryPartner.alerts.AlertsDpFragment"
         android:label="fragment_alerts_dp"
         tools:layout="@layout/fragment_alerts_dp" />
     <fragment
-        android:id="@+id/profile"
+        android:id="@+id/profile_dp"
         android:name="com.app.easemypost.ui.DeliveryPartner.profile.ProfileDpFragment"
         android:label="fragment_profile_dp"
         tools:layout="@layout/fragment_profile_dp" />
+    <fragment
+        android:id="@+id/tracking_dp"
+        android:name="com.app.easemypost.ui.DeliveryPartner.tracking.TrackingDpFragment"
+        android:label="fragment_tracking_dp"
+        tools:layout="@layout/fragment_tracking_dp" />
 </navigation>

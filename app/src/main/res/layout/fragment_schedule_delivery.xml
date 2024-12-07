@@ -198,10 +198,67 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_delivery_drop_date"
                 tools:layout_editor_absoluteX="5dp" />
 
+            <TextView
+                android:id="@+id/tv_pickup_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Pickup Time"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_delivery_drop_date"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <EditText
+                android:id="@+id/et_pickup_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_pickup_time"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="date"
+                android:hint="enter time"
+                />
+
+            <TextView
+                android:id="@+id/tv_delivery_drop_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Drop Date"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_pickup_time"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <EditText
+                android:id="@+id/et_delivery_drop_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_background"
+                android:hint="enter drop time"
+                android:inputType="date"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_drop_time"
+                tools:layout_editor_absoluteX="5dp" />
+
+
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/et_delivery_drop_date"
+                app:layout_constraintTop_toBottomOf="@id/et_delivery_drop_time"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
