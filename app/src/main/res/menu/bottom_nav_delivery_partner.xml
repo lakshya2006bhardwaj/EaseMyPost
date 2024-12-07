@@ -2,18 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:id="@+id/dashboard"
+    <item android:id="@+id/dashboard_dp"
         android:title="Dashboard"/>
 
-    <item android:id="@+id/addTruck"
-        android:title="Add new truck"/>
+    <item android:id="@+id/tracking_dp"
+        android:title="Tracking"/>
 
-    <item android:id="@+id/addDriver"
-        android:title="Add new driver"/>
-
-    <item android:id="@+id/alerts"
+    <item android:id="@+id/alerts_dp"
         android:title="Alerts"/>
 
-    <item android:id="@+id/profile"
+    <item android:id="@+id/profile_dp"
         android:title="Profile"/>
 </menu>

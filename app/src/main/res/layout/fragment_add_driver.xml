@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.DeliveryPartner.dashboard.AddDriverFragment"
+    android:background="@color/AllbackgroundColor">
+
+    <TextView
+        android:id="@+id/tv_Add_driver_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Driver"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="30sp"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/roboto_slab_extra_bold"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/tv_driver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver Name"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_Add_driver_reg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <EditText
+        android:id="@+id/et_driver_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_driver_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="18dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:inputType="text"
+        android:hint="Enter driver name"
+        />
+
+    <TextView
+        android:id="@+id/tv_driver_contact_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact number"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/et_driver_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <EditText
+        android:id="@+id/et_driver_contact_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_driver_contact_no"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="18dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:inputType="phone"
+        android:hint="Enter Contact No"
+        />
+
+    <TextView
+        android:id="@+id/tv_driver_dl_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driving License Number"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/et_driver_contact_no"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <EditText
+        android:id="@+id/et_driver_dl_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_driver_dl_no"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="18dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:inputType="text"
+        android:hint="Enter driving license no"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_driver_submit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_dashboard_main_dop"
+        android:text="Submit"
+        app:backgroundTint="@null"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

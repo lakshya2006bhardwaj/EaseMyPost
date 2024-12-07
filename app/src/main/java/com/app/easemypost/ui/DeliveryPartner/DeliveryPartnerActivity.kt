@@ -27,27 +27,22 @@ class DeliveryPartnerActivity : AppCompatActivity() {
         binding.bottomNavigationView.itemIconTintList = null
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.dashboard -> {
-                    navController.navigate(R.id.dashboard)
+                R.id.dashboard_dp -> {
+                    navController.navigate(R.id.dashboard_dp)
                     true
                 }
 
-                R.id.addDriver -> {
-                    navController.navigate(R.id.addDriver)
+                R.id.tracking_dp -> {
+                    navController.navigate(R.id.tracking_dp)
                     true
                 }
 
-                R.id.addTruck -> {
-                    navController.navigate(R.id.addTruck)
+                R.id.alerts_dp -> {
+                    navController.navigate(R.id.alerts_dp)
                     true
                 }
-
-                R.id.alerts -> {
-                    navController.navigate(R.id.alerts)
-                    true
-                }
-                R.id.profile -> {
-                    navController.navigate(R.id.profile)
+                R.id.profile_dp -> {
+                    navController.navigate(R.id.profile_dp)
                     true
                 }
 
@@ -56,11 +51,10 @@ class DeliveryPartnerActivity : AppCompatActivity() {
         }
 
         val topLevelDestination: Set<Int> = setOf(
-            R.id.addTruck,
-            R.id.addDriver,
-            R.id.profile,
-            R.id.dashboard,
-            R.id.alerts
+          R.id.tracking_dp,
+            R.id.profile_dp,
+            R.id.dashboard_dp,
+            R.id.alerts_dp
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
