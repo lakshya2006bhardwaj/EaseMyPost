@@ -142,13 +142,100 @@
                 android:hint="ex. 15T"
                 />
 
-    <TextView
+            <TextView
+                android:id="@+id/tv_parcel_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Length Of total Parcel"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_parcel_weight"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <EditText
+                android:id="@+id/et_parcel_length"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_parcel_length"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:hint="ex. 20cm"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_parcel_breadth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breadth Of total Parcel"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_parcel_length"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <EditText
+                android:id="@+id/et_parcel_breadth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_parcel_breadth"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:hint="ex. 20cm"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_parcel_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Height Of total Parcel"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_parcel_breadth"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <EditText
+                android:id="@+id/et_parcel_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_parcel_height"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:hint="ex. 20cm"
+                />
+
+
+            <TextView
         android:id="@+id/tv_pickup_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delivery Pickup Date"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/et_parcel_weight"
+        app:layout_constraintTop_toBottomOf="@id/et_parcel_height"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="18sp"
         android:layout_marginTop="25dp"
