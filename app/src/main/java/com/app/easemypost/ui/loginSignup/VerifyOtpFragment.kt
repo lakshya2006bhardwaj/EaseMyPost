@@ -1,5 +1,6 @@
 package com.app.easemypost.ui.loginSignup
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.databinding.FragmentVerifyOtpBinding
 import com.app.easemypost.domain.model.requests.AdminVerifyOtpReq
+import com.app.easemypost.ui.dop.DopActivity
 import com.app.easemypost.ui.loginSignup.viewmodel.AuthViewModel
 
 class VerifyOtpFragment : Fragment() {
@@ -41,11 +43,17 @@ class VerifyOtpFragment : Fragment() {
     }
 
     private fun initClickListener()=binding.apply{
-        if(!etOtp.text.isNullOrEmpty() && etOtp.text.toString().length==6){
-            authViewModel.adminVerifyOtp(verifyOtpData = AdminVerifyOtpReq(
-                phone = authViewModel.phone,
-                otp = etOtp.text.toString()
-            ))
+        btnVerify.setOnClickListener {
+
+
+            if (!etOtp.text.isNullOrEmpty() && etOtp.text.toString().length == 6) {
+                authViewModel.adminVerifyOtp(
+                    verifyOtpData = AdminVerifyOtpReq(
+                        phone = authViewModel.phone,
+                        otp = etOtp.text.toString()
+                    )
+                )
+            }
         }
 
     }
@@ -58,6 +66,7 @@ class VerifyOtpFragment : Fragment() {
                         res.data.message,
                         Toast.LENGTH_SHORT
                     ).show()
+                    startActivity(Intent(requireContext(),DopActivity::class.java))
                     Log.d("AuthAdmin", res.data.message)
                 }
 

@@ -31,7 +31,6 @@ class DopSignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         init()
     }
 
@@ -140,9 +139,6 @@ class DopSignUpFragment : Fragment() {
             }
         }
 
-        btnDopSignup.setOnClickListener(){
-            findNavController().navigate(R.id.action_dopSignUpFragment_to_verifyOtpFragment)
-        }
 
     }
 
@@ -155,6 +151,7 @@ class DopSignUpFragment : Fragment() {
                         res.data.message,
                         Toast.LENGTH_SHORT
                     ).show()
+                    findNavController().navigate(R.id.action_dopSignUpFragment_to_verifyOtpFragment)
                     Log.d("AuthAdmin", res.data.message)
                 }
 

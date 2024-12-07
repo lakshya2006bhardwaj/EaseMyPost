@@ -46,6 +46,7 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation("androidx.databinding:compiler:3.2.0-alpha11")
+    implementation("androidx.activity:activity:1.9.3")
     val nav_version = "2.8.3"
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")

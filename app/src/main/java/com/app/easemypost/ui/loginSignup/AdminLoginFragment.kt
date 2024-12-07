@@ -1,5 +1,6 @@
 package com.app.easemypost.ui.loginSignup
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.app.easemypost.R
 import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.databinding.FragmentAdminLoginBinding
 import com.app.easemypost.domain.model.requests.AdminLoginReq
+import com.app.easemypost.ui.dop.DopActivity
 import com.app.easemypost.ui.loginSignup.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +51,7 @@ class AdminLoginFragment : Fragment() {
     }
 
     private fun initClickListener()=binding.apply{
-        binding.btnSignup.setOnClickListener() {
+        btnLogin.setOnClickListener() {
             if(!etMobileNo.text.isNullOrEmpty()){
                 authViewModel.adminLogin(
                     AdminLoginReq(
@@ -61,19 +63,23 @@ class AdminLoginFragment : Fragment() {
                 Toast.makeText(requireContext(), "Enter Mobile Number", Toast.LENGTH_SHORT).show()
             }
         }
+        btnSignup.setOnClickListener {
+            findNavController().navigate(R.id.action_adminLoginFragment_to_dopSignUpFragment2)
+        }
+
     }
     private fun adminLoginDataObserver() {
         authViewModel.adminLoginDetails.observe(viewLifecycleOwner) { res ->
             when (res) {
                 is ApiHandler.Success -> {
-                    findNavController().navigate(R.id.action_adminLoginFragment_to_dopSignUpFragment2)
+                    startActivity(Intent(requireActivity(), DopActivity::class.java))
                     Log.d("AuthAdmin", res.data.message)
                 }
 
                 is ApiHandler.Error -> {
                     Toast.makeText(
                         requireContext(),
-                        res.errorMessage,
+                        res.exception.message,
                         Toast.LENGTH_SHORT
                     ).show()
                     res.errorMessage?.let { Log.d("AuthAdmin", it) }

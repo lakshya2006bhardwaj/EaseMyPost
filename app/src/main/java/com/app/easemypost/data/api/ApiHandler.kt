@@ -1,5 +1,7 @@
 package com.app.easemypost.data.api
 
+import org.json.JSONException
+import org.json.JSONObject
 import retrofit2.Response
 
 sealed class ApiHandler<out T> {
@@ -15,11 +17,31 @@ sealed class ApiHandler<out T> {
                 if (response.isSuccessful) {
                     Success(response.body()!!)
                 } else {
-                    Error(Throwable("Error: ${response.message()}"), response.message(),response.code())
+                    // Parse the error body to extract the message
+                    val errorBody = response.errorBody()?.string()
+                    val errorMessage = errorBody?.let {
+                        try {
+                            // Parse the JSON to get the "message"
+                            val json = JSONObject(it)
+                            json.getString("message") // Extract "message" from JSON
+                        } catch (e: JSONException) {
+                            null // Fallback if JSON parsing fails
+                        }
+                    } ?: "Unknown error"
+
+                    Error(
+                        exception = Throwable(errorMessage),
+                        errorMessage = errorMessage,
+                        errorCode = response.code()
+                    )
                 }
             } catch (exception: Exception) {
-                // Handle all exceptions (network error, unexpected error, etc.)
-                Error(exception, exception.localizedMessage, 0)
+                // Handle exceptions (network errors, etc.)
+                Error(
+                    exception = exception,
+                    errorMessage = exception.localizedMessage ?: "An unexpected error occurred",
+                    errorCode = 0
+                )
             }
         }
     }
