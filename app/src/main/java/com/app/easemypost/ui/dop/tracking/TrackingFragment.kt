@@ -5,7 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.app.easemypost.R
 import com.app.easemypost.databinding.FragmentTrackingBinding
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -21,9 +28,9 @@ class TrackingFragment : Fragment() {
 
     private lateinit var binding: FragmentTrackingBinding
     private lateinit var database: DatabaseReference
-    private val driverId = "truck_1" // The driver you want to track
-    private lateinit var mapView: MapView
-    private var driverMarker: Marker? = null
+    private val driverId = "truck_1"
+    private lateinit var googleMap: GoogleMap
+    private var driverMarker: com.google.android.gms.maps.model.Marker? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,28 +43,15 @@ class TrackingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configure OSM
-        Configuration.getInstance().load(
-            requireContext(),
-            requireContext().getSharedPreferences("osm_prefs", 0)
-        )
-
-        // Initialize Firebase reference to the driver's location
         database = FirebaseDatabase.getInstance().getReference("drivers").child(driverId)
 
-        // Set up the OSM map
-        mapView = binding.map
-        mapView.setMultiTouchControls(true)
-
-        mapView.setTileSource(TileSourceFactory.PUBLIC_TRANSPORT);
-
-
-
-        mapView.controller.setZoom(16.0)
-
-
-
-        listenToDriverLocation()
+        // Set up Google Map
+        val mapFragment = childFragmentManager.findFragmentById(R.id.mapView) as SupportMapFragment
+        mapFragment.getMapAsync(OnMapReadyCallback { map ->
+            googleMap = map
+            googleMap.uiSettings.isZoomControlsEnabled = true
+            listenToDriverLocation()
+        })
     }
 
     private fun listenToDriverLocation() {
@@ -67,38 +61,23 @@ class TrackingFragment : Fragment() {
                 val longitude = snapshot.child("longitude").getValue(Double::class.java) ?: return
 
                 // Update the marker with the new location
-                updateDriverMarker(GeoPoint(latitude, longitude))
+                updateDriverMarker(LatLng(latitude, longitude))
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle Firebase error (if any)
+                // Handle Firebase error
             }
         })
     }
 
-    private fun updateDriverMarker(location: GeoPoint) {
+    private fun updateDriverMarker(location: LatLng) {
         if (driverMarker == null) {
-            // Create a new marker if it doesn't exist
-            driverMarker = Marker(mapView).apply {
-                position = location
-                title = "Driver Location"
-            }
-            mapView.overlays.add(driverMarker)
+            driverMarker = googleMap.addMarker(
+                MarkerOptions().position(location).title("Driver Location")
+            )
         } else {
-            // Update the existing marker position
             driverMarker?.position = location
         }
-        // Move the camera to the new location
-        mapView.controller.setCenter(location)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        mapView.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mapView.onPause()
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
     }
 }

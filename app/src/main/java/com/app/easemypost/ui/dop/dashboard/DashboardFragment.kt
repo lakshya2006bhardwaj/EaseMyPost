@@ -2,14 +2,22 @@ package com.app.easemypost.ui.dop.dashboard
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.app.easemypost.R
+import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.databinding.FragmentDashboardBinding
+import com.app.easemypost.domain.model.response.TruckDetailsRes
+import com.app.easemypost.ui.dop.viewmodel.DopViewModel
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -19,6 +27,9 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 
 class DashboardFragment<PieChart, PieEntry> : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
+
+    // Sample truck numbers
+    private val dopViewModel by activityViewModels<DopViewModel>()
 
 
     override fun onCreateView(
@@ -39,14 +50,17 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
     private fun init() {
         initSetView()
         initClickListener()
+        allTrucksObserver()
+        truckDetailObserver()
     }
 
     private fun initSetView() {
-        showPieChart()
         initPieChart()
+        getAllTrucks()
+
     }
 
-    private fun initClickListener()=binding.apply {
+    private fun initClickListener() = binding.apply {
 
 
         binding.btnDeliveryInfo.setOnClickListener {
@@ -63,14 +77,14 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
 
     }
 
-    private fun showPieChart() = binding.apply {
+    private fun showPieChart(delivered: Int, toDeliver: Int) = binding.apply {
         val pieEntries = ArrayList<com.github.mikephil.charting.data.PieEntry>()
         val label = "Process"
 
         //initializing data
         val typeAmountMap: MutableMap<String, Double> = HashMap()
-        typeAmountMap["To be Delivered"] = 30.0
-        typeAmountMap["Delivered"] = 20.0
+        typeAmountMap["To be Delivered"] = toDeliver.toDouble()
+        typeAmountMap["Delivered"] = delivered.toDouble()
 
         //initializing colors for the entries
         val colors = ArrayList<Int>()
@@ -134,6 +148,107 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
         //setting the color of the hole in the middle, default white
         pieChart.setHoleColor(Color.parseColor("#000000"))
     }
+
+    private fun getAllTrucks() {
+        dopViewModel.getAllTrucks("8826302576")
+    }
+
+    private fun setSpinner(trucks: ArrayList<String>) {
+        trucks.add("Abcdgf")
+        trucks.add("Abcdgf")
+        trucks.add("Abcdgf")
+        trucks.add("Abcdgf")
+        trucks.add("Abcdgf")
+        val spinnerTruckNumber = binding.spinnerTruck
+        val adapter = ArrayAdapter(requireContext(), R.layout.spiner_item, trucks)
+        adapter.setDropDownViewResource(R.layout.spiner_item)
+        spinnerTruckNumber.adapter = adapter
+        spinnerTruckNumber.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                // Get the selected truck number
+                val selectedTruckNumber = parentView.getItemAtPosition(position) as String
+                dopViewModel.getTruckDetails("8826302576", selectedTruckNumber)
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Handle case when no item is selected
+            }
+        }
+    }
+
+    private fun allTrucksObserver() {
+        dopViewModel.allTrucks.observe(viewLifecycleOwner) { res ->
+            when (res) {
+                is ApiHandler.Success -> {
+                    Log.d("DOP", res.data.toString())
+                    var trucks = arrayListOf<String>()
+                    for (i in 0..<res.data.size) {
+                        trucks.add(res.data[i].truckId)
+                    }
+                    setSpinner(trucks)
+                }
+
+                is ApiHandler.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        res.exception.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    res.errorMessage?.let { Log.d("DOP", it) }
+                }
+
+                is ApiHandler.Loading -> {
+                    Log.d("DOP", "Loading")
+                }
+            }
+        }
+    }
+
+    private fun truckDetailObserver() {
+        dopViewModel.truckDetails.observe(viewLifecycleOwner) { res ->
+            when (res) {
+                is ApiHandler.Success -> {
+                    Log.d("DOP", res.data.toString())
+                    setData(res.data)
+                }
+
+                is ApiHandler.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        res.exception.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    res.errorMessage?.let { Log.d("DOP", it) }
+                }
+
+                is ApiHandler.Loading -> {
+                    Log.d("DOP", "Loading")
+                }
+            }
+        }
+    }
+
+    private fun setData(data: TruckDetailsRes) = binding.apply {
+        tvTotalDeliveries.text = data.parcels.size.toString()
+        var delivered = 0
+        var toDeliver = 0
+        for (i in 0..<data.parcels.size) {
+            if(data.parcels[i].status == "Delivered"){
+                delivered++
+            }else{
+                toDeliver++
+            }
+
+        }
+        showPieChart(delivered, toDeliver)
+
+    }
+
 }
 
 

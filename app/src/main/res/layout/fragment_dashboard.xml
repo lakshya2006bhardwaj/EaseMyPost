@@ -14,12 +14,23 @@
         android:layout_height="wrap_content"
         android:text="Overview Metrics"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
+        android:gravity="left"
         android:fontFamily="monospace"
         android:background="#49254F"
         android:padding="30dp"
         android:textColor="@color/white"
         android:textSize="16sp"
+        />
+    <Spinner
+        android:id="@+id/spinnerTruck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:popupBackground="@android:color/black"
+        app:layout_constraintTop_toTopOf="@id/tv_overview"
+        app:layout_constraintBottom_toBottomOf="@id/tv_overview"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_dashboard_main_dop"
-            android:text="Fuel\nEfficiency"
+            android:text="Receive\nDelivery"
             app:backgroundTint="@null"
             android:layout_margin="10dp"
             app:layout_constraintHorizontal_chainStyle="packed"

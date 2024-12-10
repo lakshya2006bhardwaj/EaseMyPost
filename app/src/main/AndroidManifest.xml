@@ -23,13 +23,19 @@
         android:theme="@style/Theme.EaseMyPost"
         tools:targetApi="31">
         <activity
+            android:name=".ui.driver.ScannerActivity"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name=".ui.driver.DriverActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.map.MapActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DeliveryPartner.DeliveryPartnerActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ui.loginSignup.MainLoginActivity"
             android:exported="true">
@@ -39,7 +45,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="com.google.android.gms.version"
+
+        <meta-data
+            android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -47,10 +55,10 @@
 
         <activity
             android:name=".ui.thirdParty.ThirdPartyActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.dop.DopActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <service
             android:name=".data.local.LocationUpdateService"

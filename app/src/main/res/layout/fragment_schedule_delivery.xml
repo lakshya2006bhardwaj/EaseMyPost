@@ -308,7 +308,7 @@
                 android:id="@+id/tv_delivery_drop_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delivery Drop Date"
+                android:text="Delivery Drop Time"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/et_pickup_time"
                 app:layout_constraintStart_toStartOf="parent"
@@ -334,6 +334,7 @@
 
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/et_delivery_drop_time"

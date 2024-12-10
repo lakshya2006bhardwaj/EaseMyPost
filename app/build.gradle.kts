@@ -76,4 +76,8 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.50")
     kapt( "com.google.dagger:hilt-android-compiler:2.50")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0") // ZXing Embedded
+    implementation ("com.google.zxing:core:3.5.1")               // ZXing Core
+
 }

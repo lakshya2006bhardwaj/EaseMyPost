@@ -5,7 +5,6 @@
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/dashboard">
 
-    <fragment android:id="@+id/placeholder" />
     <fragment
         android:id="@+id/dashboard"
         android:name="com.app.easemypost.ui.dop.dashboard.DashboardFragment"
@@ -36,5 +35,34 @@
         android:id="@+id/scheduleDeliveryFragment"
         android:name="com.app.easemypost.ui.dop.dashboard.ScheduleDeliveryFragment"
         android:label="fragment_schedule_delivery"
-        tools:layout="@layout/fragment_schedule_delivery" />
+        tools:layout="@layout/fragment_schedule_delivery" >
+        <action
+            android:id="@+id/action_scheduleDeliveryFragment_to_scheduleDeliveryNextPageFragment"
+            app:destination="@id/scheduleDeliveryNextPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleDeliveryNextPageFragment"
+        android:name="com.app.easemypost.ui.dop.dashboard.ScheduleDeliveryNextPageFragment"
+        android:label="fragment_schedule_delivery_next_page"
+        tools:layout="@layout/fragment_schedule_delivery_next_page" />
+    <fragment
+        android:id="@+id/alerts"
+        android:name="com.app.easemypost.ui.dop.alert.AlertFragment"
+        android:label="fragment_alert"
+        tools:layout="@layout/fragment_alert" />
+    <fragment
+        android:id="@+id/tracking"
+        android:name="com.app.easemypost.ui.dop.tracking.TrackingFragment"
+        android:label="fragment_tracking"
+        tools:layout="@layout/fragment_tracking" />
+    <fragment
+        android:id="@+id/dispatch"
+        android:name="com.app.easemypost.ui.dop.dispatch.DispatchFragment"
+        android:label="fragment_dispatch"
+        tools:layout="@layout/fragment_dispatch" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.app.easemypost.ui.dop.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

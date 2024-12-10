@@ -70,12 +70,8 @@ class DopActivity : AppCompatActivity() {
             binding.bottomNavigationView.isVisible =
                 topLevelDestination.contains(destination.id)
         }
-        startLocationUpdates("truck_2")
+
 
     }
-    private fun startLocationUpdates(adminId: String) {
-        val serviceIntent = Intent(this, LocationUpdateService::class.java)
-        serviceIntent.putExtra("driverId", adminId)
-        startService(serviceIntent)
-    }
+
 }
