@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/dashboard_driver"
+        android:title="Dashboard"/>
+
+    <item android:id="@+id/see_route_driver"
+        android:title="See Route"/>
+
+    <item android:id="@+id/alerts_driver"
+        android:title="Alerts"/>
+
+    <item android:id="@+id/profile_driver"
+        android:title="Profile"/>
+
+</menu>
