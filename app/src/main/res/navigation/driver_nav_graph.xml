@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/driver_nav_graph"
+    app:startDestination="@id/dashboard_driver">
+
+    <fragment
+        android:id="@+id/dashboard_driver"
+        android:name="com.app.easemypost.ui.driver.dashboard.DashboardDriverFragment"
+        android:label="fragment_dashboard_driver"
+        tools:layout="@layout/fragment_dashboard_driver" />
+    <fragment
+        android:id="@+id/see_route_driver"
+        android:name="com.app.easemypost.ui.driver.Route.RouteDriverFragment"
+        android:label="fragment_route_driver"
+        tools:layout="@layout/fragment_route_driver" />
+    <fragment
+        android:id="@+id/alerts_driver"
+        android:name="com.app.easemypost.ui.driver.alert.AlertsDriverFragment"
+        android:label="fragment_alerts_driver"
+        tools:layout="@layout/fragment_alerts_driver" />
+    <fragment
+        android:id="@+id/profile_driver"
+        android:name="com.app.easemypost.ui.driver.profile.ProfileDriverFragment"
+        android:label="fragment_profile_driver"
+        tools:layout="@layout/fragment_profile_driver" />
+</navigation>
