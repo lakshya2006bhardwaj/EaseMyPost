@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/bg_cardview"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/text_driver_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Driver Name"
-        android:textSize="24sp"
-        android:textColor="@android:color/black" />
-</LinearLayout>
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="@font/roboto_slab_medium"
+        android:textColor="#14142B"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivForward"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivForward"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/text_driver_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_driver_name"
+        app:layout_constraintTop_toTopOf="@id/text_driver_name"
+        app:srcCompat="@drawable/arrow_right_violet"
+        tools:ignore="VectorDrawableCompat" />
+</androidx.constraintlayout.widget.ConstraintLayout>
