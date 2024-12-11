@@ -1,12 +1,16 @@
 package com.app.easemypost.ui.dop.dashboard
 
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.app.easemypost.databinding.FragmentCapacityBinding
+import com.app.easemypost.ui.dop.viewmodel.DopViewModel
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -15,6 +19,7 @@ import com.github.mikephil.charting.utils.ColorTemplate
 
 class CapacityFragment : Fragment() {
     private var _binding: FragmentCapacityBinding? = null
+    private val dopViewModel by activityViewModels<DopViewModel>()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -35,50 +40,31 @@ class CapacityFragment : Fragment() {
         initClickListeners()
     }
 
-    private fun initSetViews() {
-        // Example capacity percentage
-        val filledPercentage = 75
+    private fun initSetViews()= _binding?.apply {
+        val totalCapacity = dopViewModel.truckDetailsData?.truck?.capacity
+        val availableCapacity = dopViewModel.truckDetailsData?.truck?.availableCapacity
+        if (totalCapacity != null && availableCapacity != null) {
+            val usedCapacity = totalCapacity - availableCapacity
+            val percentageUsed = (usedCapacity.toFloat() / totalCapacity.toFloat()) * 100
 
-        // Update the text below the chart
-        binding.tvDopCapacity.text = "$filledPercentage% filled"
+            circularProgressBar.max = 100
 
-        // Configure and display the pie chart
-        setupPieChart(filledPercentage)
+            val animator = ObjectAnimator.ofInt(circularProgressBar, "progress", 0, percentageUsed.toInt())
+            animator.duration = 1000
+            animator.interpolator = DecelerateInterpolator()
+            animator.start()
+
+            tvInfo.text =
+                "${100-percentageUsed.toInt()}% capacity \nleft unused in Truck \n${dopViewModel.truckDetailsData?.truck?.truckId}"
+            tvPercentage.text = "${percentageUsed.toInt()}%"
+        } else {
+            tvInfo.text = "Capacity details unavailable"
+            tvPercentage.text = "N/A"
+        }
     }
 
     private fun initClickListeners() {
-        // Add click listeners if required
-    }
 
-    private fun setupPieChart(filledPercentage: Int) {
-        val emptyPercentage = 100 - filledPercentage
-
-        // Add entries for the pie chart
-        val entries = listOf(
-            PieEntry(filledPercentage.toFloat(), "Filled"),
-            PieEntry(emptyPercentage.toFloat(), "Empty")
-        )
-
-        val dataSet = PieDataSet(entries, "Truck Capacity")
-        dataSet.colors = listOf(
-            ColorTemplate.rgb("#4CAF50"), // Green for filled
-            ColorTemplate.rgb("#BDBDBD") // Gray for empty
-        )
-
-        val data = PieData(dataSet)
-        data.setValueTextSize(14f)
-        data.setValueTextColor(Color.BLACK)
-
-        binding.pieChart.data = data
-
-        // Customize the pie chart
-        binding.pieChart.setUsePercentValues(false)
-        binding.pieChart.description.isEnabled = false
-        binding.pieChart.legend.orientation = Legend.LegendOrientation.HORIZONTAL
-        binding.pieChart.legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
-        binding.pieChart.holeRadius = 50f // Hole in the center
-        binding.pieChart.transparentCircleRadius = 55f // Slightly bigger than the hole
-        binding.pieChart.invalidate() // Refresh chart
     }
 
     override fun onDestroyView() {

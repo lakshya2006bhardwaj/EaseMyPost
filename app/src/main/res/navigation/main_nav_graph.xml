@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_dashboard_to_scheduleDeliveryFragment"
             app:destination="@id/scheduleDeliveryFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_capacityFragment"
+            app:destination="@id/capacityFragment" />
 
     </fragment>
     <fragment
@@ -65,4 +68,9 @@
         android:name="com.app.easemypost.ui.dop.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/capacityFragment"
+        android:name="com.app.easemypost.ui.dop.dashboard.CapacityFragment"
+        android:label="fragment_capacity"
+        tools:layout="@layout/fragment_capacity" />
 </navigation>

@@ -74,6 +74,9 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
         binding.btnSchedule.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_to_scheduleDeliveryFragment)
         }
+        binding.btnCapacity.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboard_to_capacityFragment)
+        }
 
     }
 
