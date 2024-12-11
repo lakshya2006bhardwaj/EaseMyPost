@@ -157,11 +157,6 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
     }
 
     private fun setSpinner(trucks: ArrayList<String>) {
-        trucks.add("Abcdgf")
-        trucks.add("Abcdgf")
-        trucks.add("Abcdgf")
-        trucks.add("Abcdgf")
-        trucks.add("Abcdgf")
         val spinnerTruckNumber = binding.spinnerTruck
         val adapter = ArrayAdapter(requireContext(), R.layout.spiner_item, trucks)
         adapter.setDropDownViewResource(R.layout.spiner_item)

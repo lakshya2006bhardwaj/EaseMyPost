@@ -47,7 +47,11 @@
         android:id="@+id/scheduleDeliveryNextPageFragment"
         android:name="com.app.easemypost.ui.dop.dashboard.ScheduleDeliveryNextPageFragment"
         android:label="fragment_schedule_delivery_next_page"
-        tools:layout="@layout/fragment_schedule_delivery_next_page" />
+        tools:layout="@layout/fragment_schedule_delivery_next_page" >
+        <action
+            android:id="@+id/action_scheduleDeliveryNextPageFragment_to_dispatch"
+            app:destination="@id/dispatch" />
+    </fragment>
     <fragment
         android:id="@+id/alerts"
         android:name="com.app.easemypost.ui.dop.alert.AlertFragment"

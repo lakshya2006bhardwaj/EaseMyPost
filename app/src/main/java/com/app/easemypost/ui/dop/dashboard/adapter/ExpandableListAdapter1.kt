@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
 import com.app.easemypost.R
+import com.app.easemypost.domain.model.requests.ExpandableData
 
 class ExpandableListAdapter1(
-    private val context: Context,
-    private val driverNames: List<String>,
-    private val truckNumbers: List<List<String>>
-) : BaseExpandableListAdapter() {
+    var truckNumbers: ArrayList<ExpandableData> = ArrayList(),
+    var context: Context,
+    private val onItemClickListener: ((groupPosition: Int, childPosition: Int?) -> Unit)? = null) : BaseExpandableListAdapter() {
 
     override fun getChild(groupPosition: Int, childPosition: Int): Any {
-        return truckNumbers[groupPosition][childPosition]
+        return truckNumbers[groupPosition].subList[childPosition]
     }
 
     override fun getChildId(groupPosition: Int, childPosition: Int): Long {
@@ -23,15 +23,15 @@ class ExpandableListAdapter1(
     }
 
     override fun getChildrenCount(groupPosition: Int): Int {
-        return truckNumbers[groupPosition].size
+        return truckNumbers[groupPosition].subList.size
     }
 
     override fun getGroup(groupPosition: Int): Any {
-        return driverNames[groupPosition]
+        return truckNumbers[groupPosition]
     }
 
     override fun getGroupCount(): Int {
-        return driverNames.size
+        return truckNumbers.size
     }
 
     override fun getGroupId(groupPosition: Int): Long {
@@ -53,7 +53,10 @@ class ExpandableListAdapter1(
             R.layout.list_item_child, parent, false
         )
         val childText = childView.findViewById<TextView>(R.id.text_truck_number)
-        childText.text = getChild(groupPosition, childPosition) as String
+        childText.text = truckNumbers[groupPosition].subList[childPosition]
+        childView.setOnClickListener {
+            onItemClickListener?.invoke(groupPosition, childPosition)
+        }
         return childView
     }
 
@@ -67,7 +70,7 @@ class ExpandableListAdapter1(
             R.layout.list_item_group, parent, false
         )
         val groupText = groupView.findViewById<TextView>(R.id.text_driver_name)
-        groupText.text = getGroup(groupPosition) as String
+        groupText.text = truckNumbers[groupPosition].title
         return groupView
     }
 
