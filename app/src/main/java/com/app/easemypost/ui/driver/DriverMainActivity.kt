@@ -8,7 +8,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.app.easemypost.R
 import com.app.easemypost.databinding.ActivityDriverMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DriverMainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityDriverMainBinding
     private lateinit var navController: NavController

@@ -207,6 +207,9 @@ class ScheduleDeliveryNextPageFragment : Fragment() {
                     ).show()
                     res.errorMessage?.let { Log.d("ScheduleDelivery", it) }
                 }
+                is ApiHandler.Loading -> {
+                    Log.d("ScheduleDelivery", "Loading")
+                }
             }
         }
     }
@@ -219,9 +222,7 @@ class ScheduleDeliveryNextPageFragment : Fragment() {
         // Initialize the second expandable list for fleet company names
         val adapter2 = ExpandableListAdapter2(requireContext(), fleetCompanies)
         binding.expandableListView2.setAdapter(adapter2)
-        is ApiHandler.Loading -> {
-            Log.d("ScheduleDelivery", "Loading")
-        }
+
     }
 
     private fun scheduleDeliveryObserver() {
