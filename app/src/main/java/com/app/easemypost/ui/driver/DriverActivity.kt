@@ -21,7 +21,7 @@ class DriverActivity : AppCompatActivity() {
             val intent = Intent(this, ScannerActivity::class.java)
             startActivity(intent)
         }
-        startLocationUpdates("truck_2")
+//        startLocationUpdates("truck_2")j
     }
     private fun startLocationUpdates(adminId: String) {
         val serviceIntent = Intent(this, LocationUpdateService::class.java)
