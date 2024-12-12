@@ -82,7 +82,7 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
         binding.btnCapacity.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_to_capacityFragment)
         }
-        btnFuel.setOnClickListener {
+        btnRecieve.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_to_receivedDeliveriesFragment)
         }
 
