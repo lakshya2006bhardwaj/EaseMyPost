@@ -35,7 +35,6 @@ class DispatchFragment : Fragment() {
         val qrCodeBase64 = dopViewModel.qrCode
         if(!qrCodeBase64.isNullOrEmpty()) {
             val base64Image = qrCodeBase64.substringAfter("base64,")
-            Log.d("ScheduleDelivery", dopViewModel.qrCode)
             // Decode base64 to a bitmap
             val decodedString: ByteArray = Base64.decode(base64Image, Base64.DEFAULT)
             val decodedBitmap: Bitmap =

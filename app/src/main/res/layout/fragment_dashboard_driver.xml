@@ -3,9 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/AllbackgroundColor"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.driver.dashboard.DashboardDriverFragment">
 
+    <TextView
+        android:id="@+id/tv_enter_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Mobile No."
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab_regular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <EditText
+        android:id="@+id/et_mobile_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_enter_mobile"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="18dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:inputType="number"
+        android:hint="Enter mobile no."
+        />
     <Button
         android:id="@+id/btnScan"
         android:layout_width="0dp"
@@ -16,6 +45,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="20dp"
         android:text="Start Scan"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@id/et_mobile_no"
+        android:textSize="20sp"
+        android:layout_margin="40dp"
+        android:background="@drawable/btn_dashboard_main_dop"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.domain.model.requests.DriversAndFleetOwnersReq
+import com.app.easemypost.domain.model.requests.GetReceivingParcelReq
 import com.app.easemypost.domain.model.requests.ParcelInfo
 import com.app.easemypost.domain.model.requests.ScheduleDeliveryReq
 import com.app.easemypost.domain.model.response.AdminSignUpRes
 import com.app.easemypost.domain.model.response.DriversAndFleetOwnersRes
+import com.app.easemypost.domain.model.response.GetReceivingParcelRes
 import com.app.easemypost.domain.model.response.GetTrucksRes
 import com.app.easemypost.domain.model.response.ScheduleDeliveryRes
 import com.app.easemypost.domain.model.response.TruckDetailsRes
@@ -26,6 +28,7 @@ class DopViewModel @Inject constructor(private val dashboardRepository: Dashboar
     var scheduleDeliveryData:ParcelInfo? = null
     var qrCode = ""
     var truckDetailsData:TruckDetailsRes?=null
+    var receiveParcelData = arrayListOf<GetReceivingParcelRes>()
 
     private val _driverAndFleetOwnersDetails = MutableLiveData<ApiHandler<DriversAndFleetOwnersRes>>()
     val driverAndFleetOwnersDetails: LiveData<ApiHandler<DriversAndFleetOwnersRes>> = _driverAndFleetOwnersDetails
@@ -38,6 +41,9 @@ class DopViewModel @Inject constructor(private val dashboardRepository: Dashboar
 
     private val _truckDetails = MutableLiveData<ApiHandler<TruckDetailsRes>>()
     val truckDetails: LiveData<ApiHandler<TruckDetailsRes>> = _truckDetails
+
+    private val _receiveParcel = MutableLiveData<ApiHandler<ArrayList<GetReceivingParcelRes>>>()
+    val receiveParcel: LiveData<ApiHandler<ArrayList<GetReceivingParcelRes>>> = _receiveParcel
     fun getDriverAndFleetOwners(params:DriversAndFleetOwnersReq){
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
@@ -117,6 +123,29 @@ class DopViewModel @Inject constructor(private val dashboardRepository: Dashboar
 
                     is ApiHandler.Loading-> {
                         _truckDetails.postValue(ApiHandler.Loading)
+                    }
+                }
+            }
+        }
+    }
+    fun getReceiveParcel(param:GetReceivingParcelReq){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                _receiveParcel.postValue(ApiHandler.Loading)
+                when (val result = dashboardRepository.getReceiveParcel(param = param)) {
+                    is ApiHandler.Success -> {
+                        _receiveParcel.postValue(result)
+                        for(i in result.data.indices){
+                            receiveParcelData.add(result.data[i])
+                        }
+                    }
+
+                    is ApiHandler.Error -> {
+                        _receiveParcel.postValue(result)
+                    }
+
+                    is ApiHandler.Loading-> {
+                        _receiveParcel.postValue(ApiHandler.Loading)
                     }
                 }
             }

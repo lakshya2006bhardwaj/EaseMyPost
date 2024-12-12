@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.app.easemypost.R
 import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.databinding.FragmentDashboardBinding
+import com.app.easemypost.domain.model.requests.GetReceivingParcelReq
 import com.app.easemypost.domain.model.response.TruckDetailsRes
 import com.app.easemypost.ui.dop.viewmodel.DopViewModel
 import com.github.mikephil.charting.animation.Easing
@@ -52,9 +53,13 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
         initClickListener()
         allTrucksObserver()
         truckDetailObserver()
+        allReceiveParcelObserver()
     }
 
     private fun initSetView() {
+        dopViewModel.getReceiveParcel(GetReceivingParcelReq(
+            "8826302576"
+        ))
         initPieChart()
         getAllTrucks()
 
@@ -76,6 +81,9 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
         }
         binding.btnCapacity.setOnClickListener {
             findNavController().navigate(R.id.action_dashboard_to_capacityFragment)
+        }
+        btnFuel.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboard_to_receivedDeliveriesFragment)
         }
 
         binding.btnAddDopTrucks.setOnClickListener {
@@ -193,6 +201,28 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
                         trucks.add(res.data[i].truckId)
                     }
                     setSpinner(trucks)
+                }
+
+                is ApiHandler.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        res.exception.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    res.errorMessage?.let { Log.d("DOP", it) }
+                }
+
+                is ApiHandler.Loading -> {
+                    Log.d("DOP", "Loading")
+                }
+            }
+        }
+    }
+    private fun allReceiveParcelObserver() {
+        dopViewModel.receiveParcel.observe(viewLifecycleOwner) { res ->
+            when (res) {
+                is ApiHandler.Success -> {
+                    Log.d("DOP", res.data.toString())
                 }
 
                 is ApiHandler.Error -> {

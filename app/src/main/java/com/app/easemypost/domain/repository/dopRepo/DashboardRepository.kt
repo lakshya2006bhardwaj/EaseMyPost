@@ -4,9 +4,11 @@ import com.app.easemypost.data.api.ApiHandler
 import com.app.easemypost.data.api.ApiInterface
 import com.app.easemypost.domain.model.requests.AdminSignUpReq
 import com.app.easemypost.domain.model.requests.DriversAndFleetOwnersReq
+import com.app.easemypost.domain.model.requests.GetReceivingParcelReq
 import com.app.easemypost.domain.model.requests.ScheduleDeliveryReq
 import com.app.easemypost.domain.model.response.AdminSignUpRes
 import com.app.easemypost.domain.model.response.DriversAndFleetOwnersRes
+import com.app.easemypost.domain.model.response.GetReceivingParcelRes
 import com.app.easemypost.domain.model.response.GetTrucksRes
 import com.app.easemypost.domain.model.response.ScheduleDeliveryRes
 import com.app.easemypost.domain.model.response.TruckDetailsRes
@@ -33,6 +35,11 @@ class DashboardRepository @Inject constructor(
     suspend fun getTruckDetail(adminID:String , truckID:String): ApiHandler<TruckDetailsRes> {
         return ApiHandler.handleApiCall{
             apiInterface.getTruckDetails(adminId = adminID , truckId = truckID)
+        }
+    }
+    suspend fun getReceiveParcel(param:GetReceivingParcelReq): ApiHandler<ArrayList<GetReceivingParcelRes>> {
+        return ApiHandler.handleApiCall{
+            apiInterface.getReceivingParcel(param)
         }
     }
 }

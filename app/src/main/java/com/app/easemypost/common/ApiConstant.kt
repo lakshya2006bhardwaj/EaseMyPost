@@ -11,8 +11,15 @@ object ApiConstant {
     const val SCHEDULE_DELIVERY = "admin/schedule/delivery"
     const val GET_ALL_TRUCKS = "admin/trucks/"
     const val GET_PARCEL_DETAILS = "admin/truck/"
+    const val RECEIVING_PARCEL = "admin/receiving-deliveries"
 
     //DRIVER
     const val CHECK_IN_PARCEL = "admin/checkin"
+
+    //ROUTES
+    const val ROUTE_OPTIMISE = "routeOptimization/assignRoute"
+    const val DRIVER_LOGIN = "driver/auth/login"
+    const val GET_PARCELS = "driver/parcels/"
+    const val MAP_API = "https://maps.googleapis.com/"
 
 }
