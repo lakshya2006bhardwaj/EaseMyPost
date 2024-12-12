@@ -78,6 +78,10 @@ class DashboardFragment<PieChart, PieEntry> : Fragment() {
             findNavController().navigate(R.id.action_dashboard_to_capacityFragment)
         }
 
+        binding.btnAddDopTrucks.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboard_to_dashboardDopTruckAddFragment)
+        }
+
     }
 
     private fun showPieChart(delivered: Int, toDeliver: Int) = binding.apply {

@@ -1,7 +1,7 @@
 package com.app.easemypost.common
 
 object ApiConstant {
-    const val BASE_URL = "http://192.168.1.2:5001/api/"
+    const val BASE_URL = "http://10.10.56.27:5001/api/"
 
     //ADMIN
     const val ADMIN_SIGNUP = "admin/auth/signup"

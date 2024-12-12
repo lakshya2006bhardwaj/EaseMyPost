@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_dashboard_to_capacityFragment"
             app:destination="@id/capacityFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_dashboardDopTruckAddFragment"
+            app:destination="@id/dashboardDopTruckAddFragment" />
 
     </fragment>
     <fragment
@@ -77,4 +80,9 @@
         android:name="com.app.easemypost.ui.dop.dashboard.CapacityFragment"
         android:label="fragment_capacity"
         tools:layout="@layout/fragment_capacity" />
+    <fragment
+        android:id="@+id/dashboardDopTruckAddFragment"
+        android:name="com.app.easemypost.ui.dop.dashboard.DashboardDopTruckAddFragment"
+        android:label="fragment_dashboard_dop_truck_add"
+        tools:layout="@layout/fragment_dashboard_dop_truck_add" />
 </navigation>
