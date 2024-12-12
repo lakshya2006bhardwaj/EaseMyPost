@@ -23,9 +23,9 @@ data class Parcel(
     val dropOffLocation: String,
     val status: String = "Pending",
     var qrCode: String?,
-    val checkInTime: Date?,
-    val checkOutTime: Date?,
-    val updatedAt: Date = Date()
+    val checkInTime: String,
+    val checkOutTime:String,
+    val updatedAt: Date?=null
 
 )
 
